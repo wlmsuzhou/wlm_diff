@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>可拖拽的div</title>
+		<style type="text/css">
+			#drag {
+				width: 100px;
+				height: 100px;
+				background: #fcc;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="drag"></div>
+		<script type="text/javascript">
+		window.onload = function () {
+			var div1 = document.getElementById("drag");
+			div1.onmousedown = function (event) {
+				var oev = event || window.event;
+				var distanceX = oev.clientX - div1.offsetLeft;
+				var distanceY = oev.clientY - div1.offsetTop;
+				document.onmousemove = function (ev) {
+					var oevent = ev || window.event;
+					div1.style.left = oevent.clientX - distanceX + 'px';
+					div1.style.top = oevent.clientY- distanceY + 'px';
+				};
+				document.onmouseup = function () {
+					document.onmousemove = null;
+					document.onmouseup = null;
+				};
+			};
+		};
+		</script>
+	</body>
+</html>

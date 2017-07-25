@@ -1,0 +1,28 @@
+<html>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+	<script>
+		function jsonpCallback(result) {
+			for (var i in result) {
+				console.log(i);
+			}
+		}
+	</script>
+	<script type="javascript" src="http://crossdomain.com/service.php">
+	</script>
+	<script>
+		$(document).ready(function () {
+			var url = "xxx/xxx.js?id=1&callback=jsonpCallback";
+			var obj = $('<script></script>');
+			obj.attr("src",url);
+			$('body').append(obj);
+		});
+	</script>
+</html>
+<!--php-->
+<!--echo jsonpCallback(result);-->
+<script type="text/javascript">
+	jsonpCallback({
+		"age":15,
+		"name":"john",
+	})
+</script>>
