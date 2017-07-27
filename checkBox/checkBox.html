@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>复选框全选或全不选</title>
+		<style type="text/css">
+			ul {
+				margin: 0;
+				padding: 0;
+			}
+			li {
+				display: inline-block;
+				margin: 10px;
+			}
+			button {
+				border-style: none;
+				background: #fcc;
+				color: #fff;
+				padding: 5px;
+				cursor: pointer;
+				margin-left: 10px;
+				border-radius: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<button id="allCheck">全选</button>
+			<button id="noCheck">全不选</button>
+			<ul>
+				<li><input type="checkbox" name="test" value="1">苏州</li>
+				<li><input type="checkbox" name="test" value="2">南京</li>
+				<li><input type="checkbox" name="test" value="3">杭州</li>
+				<li><input type="checkbox" name="test" value="4">上海</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			window.onload = function () {
+				var btn = document.getElementById('allCheck');
+				btn.onclick = function () {
+					var text = this.innerHTML;
+					console.log(text);
+					var options = document.getElementsByName('test');
+					options.forEach(function (option) {
+						var value = option.checked;
+						option.checked = !value;
+					});
+				}
+			}
+		</script>
+		<!--<script type="text/javascript" src="../jquery.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$('button#allCheck').on('click', function () {
+					$("input[type='checkbox']").each(function () {
+						var s = !$(this).prop('checked')
+						$(this).prop('checked', s);
+					});
+				});
+			});
+		</script>-->
+	</body>
+</html>
