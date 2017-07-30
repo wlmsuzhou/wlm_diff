@@ -204,3 +204,38 @@ var b = function () {
 	a();
 }
 b();
+//数组去重
+function unique (arr) {
+	var hash = {}, res = [];
+	for (var key in arr) {
+		if (!hash[arr[key]]) {
+			hash[arr[key]] = true;
+			res.push(arr[key]);
+		}
+	}
+	return res;
+}
+
+//实现两个有序数组合并
+function mergeSort(arr1, arr2) {
+	var result = [];
+	var temp1 = 0, len1 = arr1.length, temp2 = 0, len2 = arr2.length;
+	while (temp1 < len1 && temp2 < len2) {
+		if (arr1[temp1] < arr2[temp2]) {
+			result.push(arr1[temp1]);
+			temp1++;
+		} else if (arr1[temp1] == arr2[temp2]) {
+			result.push(arr1[temp1]);
+			result.push(arr2[temp2]);
+			temp1++;
+			temp2++;
+		} else {
+			result.push(arr2[temp2]);
+			temp2++;
+		}
+	}
+	return result.concat(arr1.slice(temp1)).concat(arr2.slice(temp2));
+}
+var test1 = [1,3,4,6,8];
+var test2 = [2,2,3,4,9];
+console.log(mergeSort(test1, test2));

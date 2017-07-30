@@ -21,3 +21,6 @@ function mergeSort(arr) {
 }
 var arr = [12,20,30,21,15,33,26,19,40,25];
 console.log(mergeSort(arr));
+var data = {};
+data['s'] = 1;
+console.log(data);
