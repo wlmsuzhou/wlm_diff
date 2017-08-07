@@ -3,7 +3,8 @@ function ajax (options) {
 	options = options || {};
 	options.type = (options.type || 'GET').toUpperCase();
 	options.dataType = options.dataType || 'json';
-	var params = formatParams(options.data);
+	var params = formatParams(options.data) || null;
+	
 
 	//创建xmlRequest
 	if (window.XMLHttpRequest) {
@@ -18,19 +19,28 @@ function ajax (options) {
 			if (status >= 200 && status < 300) {
 				options.success && options.success(xhr.responseText, xhr.responseXML);
 			} else {
-				options.fail && options.fail(options.status);
+				options.fail && options.fail(xhr.status);
 			}
 		}
 	}
 	//链接和发送
 	if (options.type == 'GET') {
-		xhr.open('GET', options.url + '?' + params,true);
+		if (params) {
+			xhr.open('GET', options.url + '?' + params,true);
+		} else {
+			xhr.open('GET', options.url, true);
+		}
+		
 		xhr.send(null);
 	} else if (options.type == 'POST') {
-		xhr.open('POST', options.url, true);
-		//设置表单提交内容
-		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-		xhr.send(params);
+		if (params) {
+			throw new Error('参数不合法');
+		} else {
+			xhr.open('POST', options.url, true);
+			//设置表单提交内容
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.send(params);
+		}
 	}
 }
 //格式化参数
