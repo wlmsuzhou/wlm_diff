@@ -239,3 +239,14 @@ function mergeSort(arr1, arr2) {
 var test1 = [1,3,4,6,8];
 var test2 = [2,2,3,4,9];
 console.log(mergeSort(test1, test2));
+
+//url去参数
+function getUrl (url) {
+	var result = '';
+	if (url.indexOf('?') != -1) {
+		result = url.split('?')[0];
+	}
+	return result;
+}
+var s1 = 'http://www.baidu.com?username=wlm&password=sss';
+console.log(getUrl(s1));
