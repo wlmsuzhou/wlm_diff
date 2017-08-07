@@ -1,0 +1,23 @@
+div#main {
+  margin: 20px auto;
+  width: 500px;
+}
+div#main table {
+  border: 1px solid;
+  border-collapse: collapse;
+  border-spacing: 10px;
+}
+div#main table tr {
+  border: 1px solid;
+}
+div#main table tr th.sort {
+  cursor: pointer;
+}
+div#main table tr th.sort.on {
+  color: green;
+}
+div#main table tr td {
+  width: 50px;
+  height: 20px;
+  text-align: center;
+}
