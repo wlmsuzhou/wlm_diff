@@ -1,5 +1,6 @@
 $(document).ready(function () {
-	var tBody = $('tbody');
+	var tBody = $('tbody').html();
+	console.log(tBody);
 	var th = $('th');
 	var tr = $('tbody tr');
 	var arr = new Array();
@@ -53,7 +54,7 @@ function strSortDown (arr,n) {
 	});
 }
 //字符串升序
-function strSortDown (arr,n) {
+function strSortUp (arr,n) {
 	arr.sort(function (a, b) {
 		return -(a.children[n].innerText.localeCompare(b.children[n].innerText));
 	});

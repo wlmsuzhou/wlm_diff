@@ -21,7 +21,7 @@ jQuery.extend({
 					color: opts.foreground
 				});
 				//格式化高亮文本
-				var markup = $this.html;
+				var markup = $this.html();
 				markup = $.fn.highLight.format(markup);
 				$this.html(markup);
 			});
@@ -37,6 +37,19 @@ jQuery.extend({
 	}
 	//该函数用于检查参数是否合法
 	function isValid (options) {
-		return !options || (options && typeof options === 'object') ? true: false;
+		return (options && typeof options === 'object') ? true: false;
+	}
+})(window.jQuery);
+
+
+
+(function ($) {
+	$.fn.extend({
+		"highLight": function (options) {
+
+		}
+	});
+	function isValid (options) {
+		return !options || (options && typeof )
 	}
 })(window.jQuery);
