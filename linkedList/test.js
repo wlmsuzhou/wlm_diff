@@ -250,3 +250,12 @@ function getUrl (url) {
 }
 var s1 = 'http://www.baidu.com?username=wlm&password=sss';
 console.log(getUrl(s1));
+
+// for循环setTimeout()异步问题
+for (var i=0;i < 5;i++) {
+	(function (num) {
+		setTimeout(function () {
+			console.log(num);
+		}, 1000);
+	})(i);
+}
