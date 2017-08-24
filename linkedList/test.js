@@ -259,3 +259,8 @@ for (var i=0;i < 5;i++) {
 		}, 1000);
 	})(i);
 }
+
+var temp = [0];
+if (temp) {
+	console.log(a==true);
+}
